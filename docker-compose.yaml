@@ -1,0 +1,35 @@
+version: "3.1"
+services:
+  projectmysql:
+    image: firethewall/mysql:v1
+    container_name: "projectMySQL"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123123qwe#@#
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql_mode=''
+    ports:
+      - "9006:3306"
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
+    networks:
+      project:
+
+  projectapache:
+    image: php:7.3.31-apache
+    container_name: "projectapache"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - "9060:9060" # site
+        - "9061:9061" # api
+    volumes:
+      - ./volumes:/var/www/html/ooloja:z
+    links:
+      - projectmysql
+
+    networks:
+      project:
+
+networks:
+  project:
+    driver: bridge

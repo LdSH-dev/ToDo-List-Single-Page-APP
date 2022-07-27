@@ -1,0 +1,8 @@
+#!/bin/bash
+clear
+
+docker exec projectMySQL mysqldump -u root -p123123qwe#@# oodesenvolvimento > ../BancosMySQL/ooloja/oodesenvolvimento.sql
+
+git add .
+git commit -m "$(date +'%Y%m%d%H%M'-$USER)"
+git push
