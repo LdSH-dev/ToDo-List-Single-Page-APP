@@ -4,7 +4,7 @@ services:
     image: firethewall/mysql:v1
     container_name: "projectMySQL"
     environment:
-      - MYSQL_ROOT_PASSWORD=123123qwe#@#
+      - MYSQL_ROOT_PASSWORD=123123
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql_mode=''
     ports:
       - "9006:3306"
@@ -14,7 +14,7 @@ services:
       project:
 
   projectapache:
-    image: php:7.3.31-apache
+    image: php:8.0-apache
     container_name: "projectapache"
     build:
       context: .
@@ -23,7 +23,7 @@ services:
         - "9060:9060" # site
         - "9061:9061" # api
     volumes:
-      - ./volumes:/var/www/html/ooloja:z
+      - ./volumes:/var/www/html/project:z
     links:
       - projectmysql
 

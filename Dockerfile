@@ -44,5 +44,5 @@ RUN docker-php-ext-install -j$(nproc) gd
 # RUN docker-php-ext-configure gd --with-jpeg
 RUN docker-php-ext-enable gd
 RUN service apache2 restart
-EXPOSE 8060
-EXPOSE 8061
+EXPOSE 9060
+EXPOSE 9006
