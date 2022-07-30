@@ -1,0 +1,47 @@
+ERROR - 2022-07-30 11:54:40 --> Table 'project.list' doesn't exist
+CRITICAL - 2022-07-30 11:54:40 --> Call to a member function getResult() on bool
+in SYSTEMPATH/Model.php on line 223.
+ 1 SYSTEMPATH/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH/Controllers/ToDo.php(12): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ToDo->index()
+ 4 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ToDo))
+ 5 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-30 12:19:44 --> syntax error, unexpected token "}"
+in APPPATH/Models/Lista.php on line 26.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH/Models/Lista.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Lista')
+ 3 APPPATH/Controllers/ToDo.php(12): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Lista')
+ 4 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ToDo->index()
+ 5 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ToDo))
+ 6 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-30 12:19:45 --> syntax error, unexpected token "}"
+in APPPATH/Models/Lista.php on line 26.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH/Models/Lista.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Lista')
+ 3 APPPATH/Controllers/ToDo.php(12): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Lista')
+ 4 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ToDo->index()
+ 5 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ToDo))
+ 6 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-30 13:07:12 --> Unclosed '{' on line 20
+in APPPATH/Views/ToDo_List.php on line 74.
+ 1 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render('ToDo_List', [], true)
+ 3 APPPATH/Controllers/ListaControl.php(15): view('ToDo_List', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->index()
+ 5 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 6 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-30 13:07:23 --> Undefined array key "taks"
+in APPPATH/Views/ToDo_List.php on line 32.
+ 1 APPPATH/Views/ToDo_List.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "taks"', 'APPPATH/Views/ToDo_List.php', 32)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/ToDo_List.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render('ToDo_List', [], true)
+ 5 APPPATH/Controllers/ListaControl.php(15): view('ToDo_List', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()

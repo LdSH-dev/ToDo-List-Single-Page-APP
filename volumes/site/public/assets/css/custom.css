@@ -165,3 +165,24 @@ i {
 .card-footer{
     background-color: #fff;
 }
+
+.done{
+    text-decoration: line-through !important;
+    background: #e1e1e1;
+}
+
+.plusbtn {
+    width: 35px;
+    height: 35px;
+    border-bottom: solid 2px #4F3C35;
+    background-color:#377BB5;
+    color:white;
+    border-radius:50%;
+    font-size:35px;
+    display:flex;
+    margin: 15px 10px;
+  justify-content:center;
+  align-items: center;
+    position: relative;
+    vertical-align: top;
+}
