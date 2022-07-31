@@ -35,10 +35,11 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/Listas', 'ListaControl::index');
-$routes->post('/addLista', 'ListaControl::insertLista');
-$routes->post('/addTask', 'TaskControl::insertTask');
+$routes->get('/',            'Home::index');
+$routes->get('/Listas',      'ListaControl::index');
+$routes->post('/addLista',   'ListaControl::insertLista');
+$routes->post('/deleteList', 'ListaControl::deleteLista');
+$routes->post('/addTask',    'TaskControl::insertTask');
 $routes->post('/deleteTask', 'TaskControl::deleteTask');
 
 /*

@@ -1,5 +1,31 @@
 var modal = document.getElementById("ListModal");
 
+
+function deleteList(id)
+{
+    $.ajax({
+        url: '/public/deleteList',
+        dataType: 'json',
+        type: 'post',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        data: {
+            'id': id
+        },
+        success: function (retorno) {
+            console.log(retorno);
+            afterDeleteList(id);
+        },
+        error: function (retorno) {
+            console.log(retorno);
+        }
+    });
+}
+
+function afterDeleteList(id)
+{
+    $('#list_'+id).remove();
+}
+
 function deleteTask(id)
 {
     $.ajax({

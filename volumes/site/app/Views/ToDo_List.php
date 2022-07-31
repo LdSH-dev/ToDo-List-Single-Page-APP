@@ -21,14 +21,17 @@
             <div class="d-flex" style="margin-top: 25%; margin-left:45%;"><button class="btn btn-primary btn-lg" id="onAddList"><i class="fa-plus"></i></button></div>
         </div>
         <?PHP foreach ($listas as $lista) { ?>
-            <div class="col-4">
+            <div id="list_<? echo $lista['id'];?>" class="col-4">
                 <div class="card-hover-shadow-2x mb-3 card">
                     <div class="card-header-tab card-header">
                         <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
                             <i class="fa fa-tasks"></i>&nbsp;
                             <?PHP echo $lista['name']; ?>
                         </div>
-                        <div class="d-block right card-header float-right"><button class="btn btn-primary" onclick="onAddTask('<? echo ($lista['id']) ?>');" id="onAddTask"><i class="fa-plus"></i></button></div>
+                        <div class="d-block right card-header float-right">
+                            <button class="btn btn-primary" onclick="onAddTask('<? echo ($lista['id']) ?>');" id="onAddTask"><i class="fa-plus"></i></button>
+                            <button class="btn btn-danger" onclick="deleteList('<? echo ($lista['id']) ?>');" id="onDeleteTask"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
                     <div class="scroll-area-sm">
                         <perfect-scrollbar class="ps-show-limits">
