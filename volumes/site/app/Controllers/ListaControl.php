@@ -14,4 +14,16 @@ class ListaControl extends BaseController
 
         return view('ToDo_List', $data);
     }
+
+    public function insertLista()
+    {   
+        if ($this->request->isAJAX())
+        {   
+            $data['name'] = $this->request->getPost('name');
+            $listaModel   = new Lista();
+            $result = $listaModel->insert($data);
+
+            return json_encode($result);
+        }
+    }
 }

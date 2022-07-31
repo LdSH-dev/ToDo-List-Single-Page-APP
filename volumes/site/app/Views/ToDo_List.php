@@ -18,7 +18,7 @@
 <body>
     <div id="gridList" class="row d-flex justify-content-center container-fluid pt-5">
         <div class="container-fluid col-4 justify-content-center">
-            <div class="d-flex" style="margin-top: 25%; margin-left:45%;"><button class="btn btn-primary btn-lg" onclick="onAddList(this);" id="addList"><i class="fa-plus"></i></button></div>
+            <div class="d-flex" style="margin-top: 25%; margin-left:45%;"><button class="btn btn-primary btn-lg" id="onAddList"><i class="fa-plus"></i></button></div>
         </div>
         <?PHP foreach ($listas as $lista) { ?>
             <div class="col-4">
@@ -26,21 +26,19 @@
                     <div class="card-header-tab card-header">
                         <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
                             <i class="fa fa-tasks"></i>&nbsp;
-                            <form id="formList" action="" method="post">
-                                <input type="text" class="form-control" id="list.name" placeholder="Nome da lista" value="<?PHP echo $lista['name']; ?>">
-                            </form>
+                            <?PHP echo $lista['name']; ?>
                         </div>
-                        <div class="d-block right card-header float-right"><button class="btn btn-primary" onclick="onAddTask(this);" id="addTask"><i class="fa-plus"></i></button></div>
+                        <div class="d-block right card-header float-right"><button class="btn btn-primary" onclick="onAddTask('<? echo ($lista['id']) ?>');" id="onAddTask"><i class="fa-plus"></i></button></div>
                     </div>
                     <div class="scroll-area-sm">
                         <perfect-scrollbar class="ps-show-limits">
                             <div style="position: static;" class="ps ps--active-y">
                                 <div class="ps-content">
-                                    <ul id="list" class=" list-group list-group-flush">
+                                    <ul id="<? echo ($lista['id']) ?>" class=" list-group list-group-flush">
                                         <? if ($lista['tasks']) { ?>
                                             <? foreach ($lista['tasks'] as $task) { ?>
                                                 <?PHP $class = ($task['status'] == 'T') ? 'done' : null; ?>
-                                                <li class="list-group-item <? echo $class ?>">
+                                                <li id="item_<? echo $task['id'] ?>" class="list-group-item <? echo $class ?>">
                                                     <div class="todo-indicator bg-warning"></div>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
@@ -57,7 +55,7 @@
                                                             <div class="widget-content-right">
                                                                 <button class="border-0 btn-transition btn btn-outline-success">
                                                                     <i class="fa fa-check"></i></button>
-                                                                <button class="border-0 btn-transition btn btn-outline-danger">
+                                                                <button onclick="deleteTask(<? echo $task['id'] ?>);" class="border-0 btn-transition btn btn-outline-danger">
                                                                     <i class="fa fa-trash"></i>
 
                                                                 </button>
@@ -65,10 +63,8 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                            <?PHP }
-                                        } else { ?>
-                                            <li>Você ainda não adicionou tarefas a essa lista</li>
-                                        <?PHP } ?>
+                                        <?PHP }
+                                        } ?>
                                     </ul>
                                 </div>
 
@@ -79,6 +75,39 @@
             </div>
         <?PHP } ?>
     </div>
+    <div id="ListModal" class="modal">
+        <form id='formList' action='javascript:void(0);'>
+            <input type='text' name='list.name' class='form-control' id='listName' placeholder='Nome da lista'>
+            <button class='btn btn-primary' id='addList'><i class="fas fa-arrow-right"></i></button>
+            <button class='btn btn-danger' id='closeModal'><i class="fas fa-times-circle"></i></button>
+        </form>
+    </div>
+
+    <div class="modal" id="taskModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TaskTitle">Tarefa</h5>
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formTask" action="" method="post">
+                        <input type='text' class='form-control' id='taskName' placeholder='Nome'>
+                        <input type='datetime-local' class='form-control' id='taskDatetime' placeholder='Data'>
+                        <input type='text' class='form-control' id='taskDesc' placeholder='Anotações'>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closeTaskModal" class="btn btn-secondary">Fechar</button>
+                    <button type="button" id="addTask" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+<script src="/public/assets/css/custom.js"></script>
 
 </html>
