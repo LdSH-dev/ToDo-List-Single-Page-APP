@@ -18,19 +18,20 @@
 <body>
     <div id="gridList" class="row d-flex justify-content-center container-fluid pt-5">
         <div class="container-fluid col-4 justify-content-center">
-            <div class="d-flex" style="margin-top: 25%; margin-left:45%;"><button class="btn btn-primary btn-lg" id="onAddList"><i class="fa-plus"></i></button></div>
+            <div class="d-flex" style="margin-top: 25%; margin-left:45%;"><button class="btn btn-primary btn-lg" onclick="onAddList()" id="onAddList"><i class="fa-plus"></i></button></div>
         </div>
         <?PHP foreach ($listas as $lista) { ?>
-            <div id="list_<? echo $lista['id'];?>" class="col-4">
+            <div id="list_<? echo $lista['id']; ?>" class="col-4">
                 <div class="card-hover-shadow-2x mb-3 card">
                     <div class="card-header-tab card-header">
                         <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
                             <i class="fa fa-tasks"></i>&nbsp;
-                            <?PHP echo $lista['name']; ?>
+                            <span id="listaName_<? echo $lista['id'] ?>"> <?PHP echo $lista['name']; ?> </span>
                         </div>
                         <div class="d-block right card-header float-right">
                             <button class="btn btn-primary" onclick="onAddTask('<? echo ($lista['id']) ?>');" id="onAddTask"><i class="fa-plus"></i></button>
                             <button class="btn btn-danger" onclick="deleteList('<? echo ($lista['id']) ?>');" id="onDeleteTask"><i class="fa fa-trash"></i></button>
+                            <button class="btn btn-warning" onclick="onEditList('<? echo ($lista['id']) ?>');" id="onEditTask"><i class="fas fa-edit"></i></button>
                         </div>
                     </div>
                     <div class="scroll-area-sm">
@@ -47,21 +48,24 @@
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left mr-2">
                                                                 <div class="custom-checkbox custom-control">
-                                                                    <input class="custom-control-input" id="exampleCustomCheckbox12" type="checkbox"><label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label>
+                                                                    <input onclick="updateStatusTask(<? echo $task['id'] ?>);" class="form-check-input" <? echo (($task['status'] == 'T') ? "checked" : null) ?> id="check_<? echo $task['id'] ?>" type="checkbox">
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-left">
-                                                                <div class="widget-heading"><?PHP echo ($task['name']); ?> <div class="badge badge-danger ml-2"><? echo ($task['datetime']) ?></div>
+                                                                <div class="widget-heading"><span id="taskName_<? echo $task['id'] ?>"> <?PHP echo ($task['name']); ?> </span>
+                                                                    <div id="taskDatetime_<? echo $task['id'] ?>" class="badge badge-danger ml-2">
+                                                                        <? echo ($task['datetime']) ?>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="widget-subheading"><i><? echo ($task['desc'] ?? null) ?></i></div>
+                                                                <div id="taskDesc_<? echo $task['id'] ?>" class="widget-subheading"><i><? echo ($task['desc'] ?? null) ?></i></div>
                                                             </div>
                                                             <div class="widget-content-right">
-                                                                <button class="border-0 btn-transition btn btn-outline-success">
-                                                                    <i class="fa fa-check"></i></button>
-                                                                <button onclick="deleteTask(<? echo $task['id'] ?>);" class="border-0 btn-transition btn btn-outline-danger">
-                                                                    <i class="fa fa-trash"></i>
-
-                                                                </button>
+                                                                    <button onclick="onEditTask(<? echo $task['id'] ?>);" class="border-0 btn-transition btn btn-outline-warning">
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </button>
+                                                                    <button onclick="deleteTask(<? echo $task['id'] ?>);" class="border-0 btn-transition btn btn-outline-danger">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -80,7 +84,7 @@
     </div>
     <div id="ListModal" class="modal">
         <form id='formList' action='javascript:void(0);'>
-            <input type='text' name='list.name' class='form-control' id='listName' placeholder='Nome da lista'>
+            <input type='text' name='listName' class='form-control' id='listName' placeholder='Nome da lista'>
             <button class='btn btn-primary' id='addList'><i class="fas fa-arrow-right"></i></button>
             <button class='btn btn-danger' id='closeModal'><i class="fas fa-times-circle"></i></button>
         </form>
@@ -91,7 +95,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="TaskTitle">Tarefa</h5>
-                    <button type="button" class="close" aria-label="Close">
+                    <button type="button" id="closeTaskModal" class="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -103,7 +107,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="closeTaskModal" class="btn btn-secondary">Fechar</button>
                     <button type="button" id="addTask" class="btn btn-primary">Salvar</button>
                 </div>
             </div>

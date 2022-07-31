@@ -32,9 +32,25 @@ class ListaControl extends BaseController
         if ($this->request->isAJAX())
         {
             $id = $this->request->getPost('id');
+            
+            $listModel = new Lista();
+            $result = $listModel->deleteLista($id);
+
+            return json_encode($result);
+        }
+    }
+
+    public function editLista()
+    {
+        if ($this->request->isAJAX())
+        {
+            $id   = $this->request->getPost('id');
+            $name = $this->request->getPost('name');
+
+            $data['name'] = $name;
 
             $listModel = new Lista();
-            $result = $listModel->delete($id);
+            $result = $listModel->update($id, $data);
 
             return json_encode($result);
         }

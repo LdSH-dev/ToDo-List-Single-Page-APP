@@ -1,0 +1,82 @@
+ERROR - 2022-07-31 12:30:42 --> Cannot add or update a child row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 12:30:43 --> Cannot add or update a child row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 12:30:44 --> Cannot add or update a child row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 12:30:51 --> Cannot add or update a child row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 12:30:52 --> Cannot add or update a child row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 12:30:53 --> Cannot add or update a child row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 12:30:57 --> Cannot add or update a child row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+CRITICAL - 2022-07-31 12:36:20 --> Array to string conversion
+in APPPATH/Views/ToDo_List.php on line 44.
+ 1 APPPATH/Views/ToDo_List.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH/Views/ToDo_List.php', 44)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/ToDo_List.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render('ToDo_List', [], true)
+ 5 APPPATH/Controllers/ListaControl.php(15): view('ToDo_List', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-07-31 13:06:42 --> Column 'fk_list' cannot be null
+ERROR - 2022-07-31 13:06:52 --> Column 'fk_list' cannot be null
+CRITICAL - 2022-07-31 13:58:20 --> Undefined variable $task
+in APPPATH/Views/ToDo_List.php on line 28.
+ 1 APPPATH/Views/ToDo_List.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $task', 'APPPATH/Views/ToDo_List.php', 28)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/ToDo_List.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render('ToDo_List', [], true)
+ 5 APPPATH/Controllers/ListaControl.php(15): view('ToDo_List', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-31 14:17:56 --> CodeIgniter\BaseModel::transformDataToArray(): Return value must be of type array, string returned
+in SYSTEMPATH/BaseModel.php on line 1598.
+ 1 SYSTEMPATH/BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray(' Compras do Mercadoo', 'update')
+ 2 SYSTEMPATH/Model.php(692): CodeIgniter\BaseModel->update([...], ' Compras do Mercadoo')
+ 3 APPPATH/Controllers/ListaControl.php(53): CodeIgniter\Model->update('1', ' Compras do Mercadoo')
+ 4 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->editLista()
+ 5 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 6 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-31 14:18:44 --> CodeIgniter\BaseModel::transformDataToArray(): Return value must be of type array, string returned
+in SYSTEMPATH/BaseModel.php on line 1598.
+ 1 SYSTEMPATH/BaseModel.php(832): CodeIgniter\BaseModel->transformDataToArray(' Compras do Mercado ', 'update')
+ 2 SYSTEMPATH/Model.php(692): CodeIgniter\BaseModel->update([...], ' Compras do Mercado ')
+ 3 APPPATH/Controllers/ListaControl.php(53): CodeIgniter\Model->update('1', ' Compras do Mercado ')
+ 4 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->editLista()
+ 5 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 6 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-07-31 14:21:23 --> Cannot delete or update a parent row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 14:23:12 --> Cannot delete or update a parent row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 14:23:24 --> Cannot delete or update a parent row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 14:48:05 --> Cannot delete or update a parent row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+ERROR - 2022-07-31 15:05:53 --> Cannot delete or update a parent row: a foreign key constraint fails (`project`.`task`, CONSTRAINT `fk_list` FOREIGN KEY (`fk_list`) REFERENCES `list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+CRITICAL - 2022-07-31 15:10:42 --> Call to a member function getResultArray() on bool
+in APPPATH/Models/Lista.php on line 55.
+ 1 APPPATH/Controllers/ListaControl.php(37): App\Models\Lista->deleteTasks('2')
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->deleteLista()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-31 15:11:10 --> Call to a member function getResultArray() on bool
+in APPPATH/Models/Lista.php on line 55.
+ 1 APPPATH/Controllers/ListaControl.php(38): App\Models\Lista->deleteTasks('19')
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->deleteLista()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-31 15:12:39 --> Call to a member function getResultArray() on bool
+in APPPATH/Models/Lista.php on line 57.
+ 1 APPPATH/Controllers/ListaControl.php(37): App\Models\Lista->deleteLista('2')
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->deleteLista()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-31 15:13:47 --> Call to a member function getResultArray() on bool
+in APPPATH/Models/Lista.php on line 57.
+ 1 APPPATH/Controllers/ListaControl.php(37): App\Models\Lista->deleteLista('19')
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\ListaControl->deleteLista()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ListaControl))
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()

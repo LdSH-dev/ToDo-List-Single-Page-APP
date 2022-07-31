@@ -39,8 +39,12 @@ $routes->get('/',            'Home::index');
 $routes->get('/Listas',      'ListaControl::index');
 $routes->post('/addLista',   'ListaControl::insertLista');
 $routes->post('/deleteList', 'ListaControl::deleteLista');
+$routes->post('/editList',   'ListaControl::editLista');
 $routes->post('/addTask',    'TaskControl::insertTask');
 $routes->post('/deleteTask', 'TaskControl::deleteTask');
+$routes->post('/updateTask', 'TaskControl::updateTask');
+$routes->post('/getTask',    'TaskControl::getTask');
+$routes->post('/editTask',   'TaskControl::editTask');
 
 /*
  * --------------------------------------------------------------------

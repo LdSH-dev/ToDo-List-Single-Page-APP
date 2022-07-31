@@ -43,6 +43,19 @@ class Lista extends Model
         $query = $this->db->query($sql);
         return $query->getResultArray();
     }
+
+    function deleteLista($id)
+    {
+        $sql = "
+            DELETE FROM task
+            WHERE fk_list = $id
+        ";
+
+        $query = $this->db->query($sql);
+        $return = $this->delete($id);
+
+        return $return;
+    }
 }
 
 ?>
